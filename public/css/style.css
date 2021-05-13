@@ -1,6 +1,13 @@
+@import url("./scale-hour.css");
+
 html, body{
-    margin:0px;
-    padding:0px;
-    height:100%;
-    overflow:hidden;
+    margin: 0px;
+    padding: 0px;
+    height: 100%;
+    overflow: hidden;
+}
+.my_event_resize {
+    height: 10px;
+    position: absolute;
+    bottom: -1px;
 }
