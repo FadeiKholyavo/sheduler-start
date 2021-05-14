@@ -57,6 +57,20 @@ scheduler.templates.event_class = (start, end, event) => {
     return `owner_${event.owner_id}`; 
 };
 
+//Set custom tooltip text
+scheduler.templates.tooltip_text = function(start,end,event) {
+	const formatFunc = scheduler.date.date_to_str("%l, %d. %F %Y");
+	const startDate = scheduler.templates.event_date(start);
+	const endDate = scheduler.templates.event_date(end);
+	const owner = scheduler.getLabel("owner_id", event.owner_id);
+	const room = scheduler.getLabel("room_id", event.room_id);
+	const text = event.text;
+    return `<b>Event:</b> ${text}<br/>
+				${startDate} - ${endDate}, ${formatFunc(start)}<br/>
+				${owner}, ${room}
+			`;
+};
+
 //Add new fields to the lightbox
 scheduler.config.lightbox.sections=[    
 	{ 
