@@ -1,0 +1,27 @@
+/*event in day or week view*/
+.dhx_cal_event.owner_1 div{
+    background-color: #009966 !important;
+    color: black !important;
+}
+.dhx_cal_event.owner_2 div{
+	background-color: #FF9933 !important;
+	color: black !important;
+}
+		 
+/*multi-day event in month view*/
+.dhx_cal_event_line.owner_1{
+	background-color: #009966 !important;
+	color: black !important;
+}
+.dhx_cal_event_line.owner_2{
+	background-color: #FF9933 !important;
+	color: black !important;
+}
+		 
+/*event with fixed time, in month view*/
+.dhx_cal_event_clear.owner_1{
+	color: black !important;
+}
+.dhx_cal_event_clear.owner_2{
+	color: black !important;
+}

@@ -30,6 +30,11 @@ scheduler.templates.hour_scale = function(date){
 	return html;
 }
 
+//Add background color for the event-box according its owner
+scheduler.templates.event_class = (start, end, event) => {
+    return `owner_${event.owner_id}`; 
+};
+
 // Init sheduler
 scheduler.init("scheduler_here", new Date(), "week");
 
