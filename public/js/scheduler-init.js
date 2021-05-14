@@ -117,6 +117,22 @@ scheduler.templates.unit_date = function(start, end){
 	const endDate = formatFunc(scheduler.date.add(end,-1,"day"));
     return `${startDate} - ${endDate}`;
 };
+
+//Init timeline view
+scheduler.createTimelineView({
+	name:	"timeline",
+	x_unit:	"minute",
+	x_date:	"%H:%i",
+	x_step:	30,
+	x_size: 24,
+	x_start: 16,
+	x_length: 48,
+	y_unit:	scheduler.serverList("rooms"),
+	y_property:	"room_id",
+	render:"bar"
+});
+
+
 // Init sheduler
 scheduler.init("scheduler_here", new Date(), "week");
 
