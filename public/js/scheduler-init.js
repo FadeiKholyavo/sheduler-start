@@ -30,6 +30,37 @@ scheduler.templates.hour_scale = function(date){
 	return html;
 }
 
+//Add new fields to the lightbox
+scheduler.config.lightbox.sections=[    
+	{ 
+		name:"description", 
+		height:50, 
+		type:"textarea", 
+		map_to:"text", 
+		focus:true
+	},
+    { 
+		name:"Room",    
+		height:43, 
+		type:"select", 
+		map_to:"room_id", 
+		options: scheduler.serverList("rooms")
+	},
+	{ 
+		name:"Owner",    
+		height:43, 
+		type:"select", 
+		map_to:"owner_id", 
+		options: scheduler.serverList("owners")
+	},
+    { 
+		name:"time",        
+		height:72, 
+		type:"time",     
+		map_to:"auto"
+	}   
+];
+
 //Add background color for the event-box according its owner
 scheduler.templates.event_class = (start, end, event) => {
     return `owner_${event.owner_id}`; 
