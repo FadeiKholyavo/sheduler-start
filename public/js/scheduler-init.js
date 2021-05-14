@@ -102,6 +102,21 @@ scheduler.config.lightbox.sections=[
 	}   
 ];
 
+//Init units view
+scheduler.createUnitsView({
+    name:"unit",
+    property:"room_id",
+    list: scheduler.serverList("rooms"),
+	days: 3
+});
+
+// Config date in headers of units view
+scheduler.templates.unit_date = function(start, end){
+    const formatFunc = scheduler.date.date_to_str("%F %d %Y");
+	const startDate = formatFunc(start);
+	const endDate = formatFunc(scheduler.date.add(end,-1,"day"));
+    return `${startDate} - ${endDate}`;
+};
 // Init sheduler
 scheduler.init("scheduler_here", new Date(), "week");
 
