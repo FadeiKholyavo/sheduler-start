@@ -30,6 +30,33 @@ scheduler.templates.hour_scale = function(date){
 	return html;
 }
 
+//Show custom content
+scheduler.attachEvent("onTemplatesReady", () => {
+
+    scheduler.templates.event_header = (start, end, event) => {
+	    const startDate = scheduler.templates.event_date(start);
+		const endDate = scheduler.templates.event_date(end);
+		const owner = scheduler.getLabel("owner_id", event.owner_id);
+		return `${startDate} - ${endDate}, <b>${owner}</b>`;
+	}
+
+}); 
+
+scheduler.attachEvent("onTemplatesReady", () => {
+
+    scheduler.templates.event_text = (start, end, event) => {
+		const text = event.text;
+		const room = scheduler.getLabel("room_id", event.room_id);
+        return `<b>${text}</b><br><i>${room}</i>`;
+    }
+
+}); 
+
+//Add background color for the event-box according its owner
+scheduler.templates.event_class = (start, end, event) => {
+    return `owner_${event.owner_id}`; 
+};
+
 //Add new fields to the lightbox
 scheduler.config.lightbox.sections=[    
 	{ 
@@ -60,11 +87,6 @@ scheduler.config.lightbox.sections=[
 		map_to:"auto"
 	}   
 ];
-
-//Add background color for the event-box according its owner
-scheduler.templates.event_class = (start, end, event) => {
-    return `owner_${event.owner_id}`; 
-};
 
 // Init sheduler
 scheduler.init("scheduler_here", new Date(), "week");
