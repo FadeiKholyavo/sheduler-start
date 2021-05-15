@@ -85,6 +85,7 @@ scheduler.config.lightbox.sections=[
 		height:43, 
 		type:"select", 
 		map_to:"room_id", 
+		default_value: 0,
 		options: scheduler.serverList("rooms")
 	},
 	{ 
@@ -92,6 +93,7 @@ scheduler.config.lightbox.sections=[
 		height:43, 
 		type:"select", 
 		map_to:"owner_id", 
+		default_value: 0,
 		options: scheduler.serverList("owners")
 	},
     { 
@@ -140,6 +142,12 @@ scheduler.addMarkedTimespan({
 	type:"dhx_time_block"
 });
 
+//Set zero to the room_id and owner_id if their values are empty
+scheduler.attachEvent("onEventSave",function(id,ev){
+	if(!ev.room_id) ev.room_id = 0;
+	if(!ev.owner_id) ev.owner_id = 0;
+	return true;
+});
 
 // Init sheduler
 scheduler.init("scheduler_here", new Date(), "week");

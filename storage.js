@@ -32,11 +32,9 @@ class Storage {
 
 	// create new event
 	async insert(data) {
-		const owner = data.owner_id || 0;
-		const room = data.room_id || 0;
 		let result = await this._db.query(
 			"INSERT INTO ?? (`start_date`, `end_date`, `text`, `owner_id`, `room_id`) VALUES (?,?,?,?,?)",
-			[this.eventsTable, data.start_date, data.end_date, data.text, owner, room]);
+			[this.eventsTable, data.start_date, data.end_date, data.text, data.owner_id, data.room_id]);
 
 		return {
 			action: "inserted",
@@ -46,11 +44,9 @@ class Storage {
 
 	// update event
 	async update(id, data) {
-		const owner = data.owner_id || 0;
-		const room = data.room_id || 0;
 		await this._db.query(
 			"UPDATE ?? SET `start_date` = ?, `end_date` = ?, `text` = ?, `owner_id` = ?, `room_id` = ? WHERE id = ?",
-			[this.eventsTable, data.start_date, data.end_date, data.text, owner, room, id]);
+			[this.eventsTable, data.start_date, data.end_date, data.text, data.owner_id, data.room_id, id]);
 
 		return {
 			action: "updated"
