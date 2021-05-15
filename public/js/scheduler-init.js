@@ -133,6 +133,14 @@ scheduler.createTimelineView({
 });
 
 
+//Block events till the current date
+scheduler.addMarkedTimespan({
+	start_date: new Date(1970,12,12),
+	end_date: new Date(),
+	type:"dhx_time_block"
+});
+
+
 // Init sheduler
 scheduler.init("scheduler_here", new Date(), "week");
 
