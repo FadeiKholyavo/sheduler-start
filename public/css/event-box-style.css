@@ -30,3 +30,7 @@
 .dhx_cal_event{
     overflow: hidden;
 }
+
+.dhx_cal_event.dhx_cal_select_menu.dhx_cal_event_selected{
+    z-index: 5;
+}
