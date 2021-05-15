@@ -1,5 +1,4 @@
-require("date-format-lite"); // add date format
-var xssFilters = require('xss-filters');
+const xssFilters = require('xss-filters');
 
 class Storage {
 	constructor(connection) {
@@ -9,7 +8,7 @@ class Storage {
 		this.ownersTable = "owners";
 	}
 
-	// get events from the table, use dynamic loading if parameters sent
+	// get events from the table
 	async getAll(params) {
 		let query = "SELECT * FROM ??";
 

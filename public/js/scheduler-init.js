@@ -18,7 +18,7 @@ const hour = scheduler.date.date_to_str("%H:%i");
 const minutes = scheduler.date.date_to_str("%i");
 			
 scheduler.config.hour_size_px = 88;
-scheduler.templates.hour_scale = function(date){
+scheduler.templates.hour_scale = (date) => {
 	const step = 15;
 	let html = `<div class="dhx_scale_hour_hours">${hour(date)}</div>`;
 	for (let i = 0; i < 60/step; i++){
@@ -58,7 +58,7 @@ scheduler.templates.event_class = (start, end, event) => {
 };
 
 //Set custom tooltip text
-scheduler.templates.tooltip_text = function(start,end,event) {
+scheduler.templates.tooltip_text = (start,end,event) => {
 	const formatFunc = scheduler.date.date_to_str("%l, %d. %F %Y");
 	const startDate = scheduler.templates.event_date(start);
 	const endDate = scheduler.templates.event_date(end);
@@ -113,7 +113,7 @@ scheduler.createUnitsView({
 });
 
 // Config date in headers of units view
-scheduler.templates.unit_date = function(start, end){
+scheduler.templates.unit_date = (start, end) => {
     const formatFunc = scheduler.date.date_to_str("%F %d %Y");
 	const startDate = formatFunc(start);
 	const endDate = formatFunc(scheduler.date.add(end,-1,"day"));
@@ -144,26 +144,25 @@ scheduler.addMarkedTimespan({
 
 //Set default to the room_id and owner_id if their values are empty
 function setDefaultValues(ev){
-	ev.text = ev.text.replace(/[<>]/g, "");;
+	ev.text = ev.text.replace(/[<>]/g, "");
 	if(!ev.room_id) ev.room_id = 0;
 	if(!ev.owner_id) ev.owner_id = 0;	
 }
-scheduler.attachEvent("onEventSave",function(id,ev){
+scheduler.attachEvent("onEventSave",(id, ev) => {
 	setDefaultValues(ev);
 	return true;
 });
-scheduler.attachEvent("onEventChanged",function(id,ev){
-	setDefaultValues(ev)
+scheduler.attachEvent("onEventChanged",(id, ev) => {
+	setDefaultValues(ev);
 	return true;
 });
 
 
 // Init sheduler
 scheduler.init("scheduler_here", new Date(), "week");
-
 scheduler.load("/events", "json");
 
 const dp = new dataProcessor("/events");
-dp.init(scheduler);
 
+dp.init(scheduler);
 dp.setTransactionMode("REST");
