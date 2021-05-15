@@ -12,3 +12,14 @@ html, body{
     position: absolute;
     bottom: -1px;
 }
+
+.dhx_body b {
+    word-wrap: break-word;
+}
+.dhx_body i {
+    overflow: hidden;
+	text-overflow: ellipsis;
+	display: -webkit-box;
+}
+
+
