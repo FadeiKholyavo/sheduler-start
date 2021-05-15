@@ -142,12 +142,21 @@ scheduler.addMarkedTimespan({
 	type:"dhx_time_block"
 });
 
-//Set zero to the room_id and owner_id if their values are empty
-scheduler.attachEvent("onEventSave",function(id,ev){
+//Set default to the room_id and owner_id if their values are empty
+function setDefaultValues(ev){
+	ev.text = ev.text.replace(/[<>]/g, "");;
 	if(!ev.room_id) ev.room_id = 0;
-	if(!ev.owner_id) ev.owner_id = 0;
+	if(!ev.owner_id) ev.owner_id = 0;	
+}
+scheduler.attachEvent("onEventSave",function(id,ev){
+	setDefaultValues(ev);
 	return true;
 });
+scheduler.attachEvent("onEventChanged",function(id,ev){
+	setDefaultValues(ev)
+	return true;
+});
+
 
 // Init sheduler
 scheduler.init("scheduler_here", new Date(), "week");
