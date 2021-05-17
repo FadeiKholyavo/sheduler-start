@@ -40,11 +40,7 @@ scheduler.attachEvent("onTemplatesReady", () => {
 		return `${startDate} - ${endDate}, <b>${owner}</b>`;
 	}
 
-}); 
-
-scheduler.attachEvent("onTemplatesReady", () => {
-
-    scheduler.templates.event_text = (start, end, event) => {
+	scheduler.templates.event_text = (start, end, event) => {
 		const text = event.text;
 		const room = scheduler.getLabel("room_id", event.room_id);
         return `<b>${text}</b><br><i>${room}</i>`;
