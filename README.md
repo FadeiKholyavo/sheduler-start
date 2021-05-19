@@ -9,14 +9,7 @@ Implementing backend API for dhtmlxScheduler using node.js and MySQL.
 
 ## Setup
 
-- clone or download the demo
-
-```
-$ git clone https://github.com/DHTMLX/scheduler-howto-node
-$ cd ./scheduler-howto-node
-```
-
-- import database from `mysql_dump.sql`
+- import database from `sheduler.sql`
 - update db connection settings in `server.js`
 - install dependencies using `yarn install` or `npm install`
 

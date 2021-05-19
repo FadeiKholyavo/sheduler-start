@@ -1,20 +1,12 @@
 const express = require("express");
 const bodyParser = require("body-parser");
+const mysqlConfig = require("./bd-connection-config");
 
 const app = express();
 const port = 3000;
  
 app.use(bodyParser.urlencoded({extended:true}));
 app.use(express.static(__dirname + "/../public/"));
-console.log(__dirname)
-
-const mysqlConfig = {
-    "connectionLimit": 10,
-    "host": "localhost",
-    "user": "root",
-    "password": "1111",
-    "database": "scheduler"
-};
 
 const util = require("util");
 const mysql = require('mysql');

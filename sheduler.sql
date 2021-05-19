@@ -24,8 +24,8 @@ CREATE TABLE `owners` (
 );
 
 /*add info to tables*/
-INSERT INTO `events` (`id`, `start_date`,`end_date`,  `text`, `room_id`, `owner_id`) VALUES (1, "20210812", "20210612", "test",0 ,0);
-INSERT INTO `events` (`id`, `start_date`,`end_date`,  `text`, `room_id`, `owner_id`) VALUES (2, "20210813", "20210613", "test1",0 ,0);
+INSERT INTO `events` (`id`, `start_date`,`end_date`,  `text`, `room_id`, `owner_id`) VALUES (1, curdate(), curdate(), "test",0 ,0);
+INSERT INTO `events` (`id`, `start_date`,`end_date`,  `text`, `room_id`, `owner_id`) VALUES (2, curdate(), curdate(), "test1",0 ,0);
 
 INSERT INTO `rooms` (`key`, `label`) VALUES (1, "Room1");
 INSERT INTO `rooms`  (`key`, `label`) VALUES (2, "Room2");
