@@ -44,7 +44,7 @@ scheduler.templates.week_date = function(start, end){
 	const parseStartDate = scheduler.date.date_to_str("%l, %d. %F");
 	const parseEndDate = scheduler.date.date_to_str("%l, %d. %F (week %W)");
 	const endDate = scheduler.date.add(end,-1,"day");
-    return parseStartDate(start) +" &ndash; " + parseEndDate(endDate);
+    return `${parseStartDate(start)} &ndash; ${parseEndDate(endDate)}`;
 };
 // Add minutes to the dhx_scale_hour cell
 scheduler.templates.hour_scale = (date) => {
