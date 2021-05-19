@@ -8,11 +8,11 @@ function callMethod (method) {
 			result =  {
 				action: "error",
 				message: e.message
-			}
+			};
 		}
 
 		res.send(result);
-	}
+	};
 };
 
 module.exports = {

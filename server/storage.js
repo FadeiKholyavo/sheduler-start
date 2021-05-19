@@ -1,4 +1,4 @@
-const xssFilters = require('xss-filters');
+const xssFilters = require("xss-filters");
 
 class Storage {
 	constructor(connection) {
@@ -38,7 +38,7 @@ class Storage {
 		return {
 			action: "inserted",
 			tid: result.insertId
-		}
+		};
 	}
 
 	// update event
@@ -50,7 +50,7 @@ class Storage {
 
 		return {
 			action: "updated"
-		}
+		};
 	}
 
 	// delete event
@@ -61,15 +61,15 @@ class Storage {
 
 		return {
 			action: "deleted"
-		}
+		};
 	}
 }
 
 function checkData(data){
-	if(!Date.parse(data.start_date)){data.start_date = new Date()};
-	if(!Date.parse(data.end_date)){data.end_date = new Date()};
-	if(!Number.isInteger(data.owner_id)){data.owner_id = 0};
-	if(!Number.isInteger(data.room_id)){data.room_id = 0};
+	if(!Date.parse(data.start_date)){data.start_date = new Date();};
+	if(!Date.parse(data.end_date)){data.end_date = new Date();};
+	if(!Number.isInteger(data.owner_id)){data.owner_id = 0;};
+	if(!Number.isInteger(data.room_id)){data.room_id = 0;};
 }
 
 module.exports = Storage;

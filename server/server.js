@@ -9,7 +9,7 @@ app.use(bodyParser.urlencoded({extended:true}));
 app.use(express.static(__dirname + "/../public/"));
 
 const util = require("util");
-const mysql = require('mysql');
+const mysql = require("mysql");
 
 const connectionPool = mysql.createPool(mysqlConfig);
 connectionPool.query = util.promisify(connectionPool.query);
@@ -22,5 +22,5 @@ router.setRoutes(app, "/events", storage);
 
 // start server
 app.listen(port, () => {
-    console.log("Server is running on port " + port + "...");
+	console.log("Server is running on port " + port + "...");
 });
