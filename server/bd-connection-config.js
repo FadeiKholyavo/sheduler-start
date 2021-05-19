@@ -1,7 +1,7 @@
 module.exports = {
-	"connectionLimit": 10,
-	"host": "localhost",
-	"user": "root",
-	"password": "1111",
-	"database": "scheduler"
+	CONNECTION_LIMIT: 10,
+	HOST: "localhost",
+	USER: "root",
+	PASSWORD: "1111",
+	DATABASE: "scheduler"
 };

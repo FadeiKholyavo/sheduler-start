@@ -1,6 +1,6 @@
 const express = require("express");
 const bodyParser = require("body-parser");
-const mysqlConfig = require("./bd-connection-config");
+const {CONNECTION_LIMIT, HOST, USER, PASSWORD, DATABASE} = require("./bd-connection-config");
 
 const app = express();
 const port = 3000;
@@ -10,6 +10,14 @@ app.use(express.static(__dirname + "/../public/"));
 
 const util = require("util");
 const mysql = require("mysql");
+
+const mysqlConfig = {
+	"connectionLimit": CONNECTION_LIMIT,
+	"host": HOST,
+	"user": USER,
+	"password": PASSWORD,
+	"database": DATABASE
+};
 
 const connectionPool = mysql.createPool(mysqlConfig);
 connectionPool.query = util.promisify(connectionPool.query);
