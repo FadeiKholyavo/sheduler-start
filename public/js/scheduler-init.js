@@ -90,7 +90,7 @@ scheduler.templates.tooltip_text = (start,end,event) => {
 
 //Set default to the room_id and owner_id if their values are empty
 function setDefaultValues(ev){
-	ev.text = ev.text.replace(/[<>]/g, "");
+	ev.text = xssFilters.inHTMLData(ev.text)
 	if(!ev.room_id) ev.room_id = 0;
 	if(!ev.owner_id) ev.owner_id = 0;	
 }
