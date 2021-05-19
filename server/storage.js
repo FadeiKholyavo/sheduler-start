@@ -31,10 +31,10 @@ class Storage {
 
 	// create new event
 	async insert(data) {
+		checkData(data);
 		let result = await this._db.query(
 			"INSERT INTO ?? (`start_date`, `end_date`, `text`, `owner_id`, `room_id`) VALUES (?,?,?,?,?)",
 			[this.eventsTable, data.start_date, data.end_date, data.text, data.owner_id, data.room_id]);
-
 		return {
 			action: "inserted",
 			tid: result.insertId
@@ -43,6 +43,7 @@ class Storage {
 
 	// update event
 	async update(id, data) {
+		checkData(data);
 		await this._db.query(
 			"UPDATE ?? SET `start_date` = ?, `end_date` = ?, `text` = ?, `owner_id` = ?, `room_id` = ? WHERE id = ?",
 			[this.eventsTable, data.start_date, data.end_date, data.text, data.owner_id, data.room_id, id]);
@@ -62,6 +63,13 @@ class Storage {
 			action: "deleted"
 		}
 	}
+}
+
+function checkData(data){
+	if(!Date.parse(data.start_date)){data.start_date = new Date()};
+	if(!Date.parse(data.end_date)){data.end_date = new Date()};
+	if(!Number.isInteger(data.owner_id)){data.owner_id = 0};
+	if(!Number.isInteger(data.room_id)){data.room_id = 0};
 }
 
 module.exports = Storage;
