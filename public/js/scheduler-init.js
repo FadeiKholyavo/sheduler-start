@@ -72,6 +72,7 @@ scheduler.templates.event_text = (start, end, event) => {
 };
 //Add background color for the event-box according its owner
 scheduler.templates.event_class = (start, end, event) => {
+	if(!event.owner_id) return `owner_0`
 	return `owner_${event.owner_id}`; 
 };
 //Set custom tooltip text
@@ -93,18 +94,12 @@ scheduler.templates.month_date_class = (date) => {
 	return "";
 };
 
-//Set default to the room_id and owner_id if their values are empty
-function setDefaultValues(ev){
-	ev.text = xssFilters.inHTMLData(ev.text);
-	if(!ev.room_id) ev.room_id = 0;
-	if(!ev.owner_id) ev.owner_id = 0;	
-}
 scheduler.attachEvent("onEventSave",(id, ev) => {
-	setDefaultValues(ev);
+	ev.text = xssFilters.inHTMLData(ev.text);
 	return true;
 });
 scheduler.attachEvent("onEventChanged",(id, ev) => {
-	setDefaultValues(ev);
+	ev.text = xssFilters.inHTMLData(ev.text);
 	return true;
 });
 

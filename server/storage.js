@@ -68,8 +68,8 @@ class Storage {
 function checkData(data){
 	if(!Date.parse(data.start_date)){data.start_date = new Date();};
 	if(!Date.parse(data.end_date)){data.end_date = new Date();};
-	if(!Number(data.owner_id)){data.owner_id = 0;};
-	if(!Number(data.room_id)){data.room_id = 0;};
+	if(!Number(data.owner_id)){data.owner_id = null;};
+	if(!Number(data.room_id)){data.room_id = null;};
 }
 
 module.exports = Storage;
