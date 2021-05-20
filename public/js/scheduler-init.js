@@ -42,7 +42,7 @@ scheduler.templates.day_date = (date) => {
 };
 scheduler.templates.week_date = (start, end) => {
 	const parseStartDate = scheduler.date.date_to_str("%l, %d. %F");
-	const parseEndDate = scheduler.date.date_to_str("%l, %d. %F (week %W)");
+	const parseEndDate = scheduler.date.date_to_str("%l, %d. %F %Y (week %W)");
 	const endDate = scheduler.date.add(end,-1,"day");
 	return `${parseStartDate(start)} &ndash; ${parseEndDate(endDate)}`;
 };
