@@ -88,6 +88,11 @@ scheduler.templates.tooltip_text = (start,end,event) => {
 			`;
 };
 
+scheduler.templates.month_date_class = (date) => {
+	if(date < new Date()) return "block_event";
+	return "";
+};
+
 //Set default to the room_id and owner_id if their values are empty
 function setDefaultValues(ev){
 	ev.text = xssFilters.inHTMLData(ev.text);
