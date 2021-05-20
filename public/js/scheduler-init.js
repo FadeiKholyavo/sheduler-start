@@ -117,10 +117,10 @@ scheduler.createTimelineView({
 	name:	"timeline",
 	x_unit:	"minute",
 	x_date:	"%H:%i",
-	x_step:	30,
+	x_step:	60,
 	x_size: 24,
-	x_start: 16,
-	x_length: 48,
+	x_start: 0,
+	x_length: 24,
 	y_unit:	scheduler.serverList("rooms"),
 	y_property:	"room_id",
 	render:"bar"
