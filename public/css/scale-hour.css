@@ -1,0 +1,13 @@
+.dhx_scale_hour{
+    text-align: right;
+    padding-right: 10px;
+}
+.dhx_scale_hour_hours{
+    height: 22px;
+    line-height: 22px; 
+    font-weight: bold;
+}
+.dhx_scale_hour_minutes{
+    height: 22px;
+    line-height: 22px;
+}

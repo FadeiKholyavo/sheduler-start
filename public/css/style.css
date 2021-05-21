@@ -1,0 +1,25 @@
+@import url("./scale-hour.css");
+@import url("./event-box-color.css");
+
+html, body{
+    margin: 0px;
+    padding: 0px;
+    height: 100%;
+    overflow: hidden;
+}
+.my_event_resize {
+    height: 10px;
+    position: absolute;
+    bottom: -1px;
+}
+
+.dhx_body b {
+    word-wrap: break-word;
+}
+.dhx_body i {
+    overflow: hidden;
+	text-overflow: ellipsis;
+	display: -webkit-box;
+}
+
+

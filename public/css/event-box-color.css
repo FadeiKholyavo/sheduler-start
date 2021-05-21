@@ -1,0 +1,50 @@
+/*event in day, week view, timeleine*/
+.dhx_cal_event.owner_1 div,
+.dhx_cal_event.owner_1,
+.dhx_cal_event_line.owner_1 div,
+.dhx_cal_event_line.owner_1{
+    background-color: #009966 !important;
+}
+.dhx_cal_event.owner_2 div,
+.dhx_cal_event.owner_2,
+.dhx_cal_event_line.owner_2 div,
+.dhx_cal_event_line.owner_2{
+	background-color: #FF9933 !important;
+}
+		 
+/*event with fixed time, in month view*/
+.dhx_cal_event_clear.owner_1{
+    background-color: #009966 !important;
+    color: #fff;
+}
+
+.dhx_cal_event_clear.owner_2{
+    background-color: #FF9933 !important;
+    color: #fff;
+}
+
+.dhx_cal_event_clear.owner_0{
+    background-color: #0288D1!important;
+    color: #fff;
+}
+
+.dhx_cal_event.owner_1 div.dhx_footer,
+.dhx_cal_event.owner_2 div.dhx_footer{
+    background-color: transparent !important;
+}
+
+.dhx_cal_event{
+    overflow: hidden;
+}
+
+.dhx_cal_event.dhx_cal_select_menu.dhx_cal_event_selected{
+    z-index: 5;
+}
+
+.blocked_cell .dhx_month_body,
+.blocked_cell .dhx_month_head {
+    position: relative;
+    background: silver;
+    opacity: .4;
+    z-index: 1;
+}
