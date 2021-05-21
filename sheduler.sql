@@ -1,8 +1,17 @@
 CREATE DATABASE  IF NOT EXISTS `scheduler`;
 USE `scheduler`;
- 
-DROP TABLE IF EXISTS `events`;
-CREATE TABLE `events` (
+
+CREATE TABLE IF NOT EXISTS `rooms` (
+    `key` int NOT NULL,
+    `label` varchar(255) DEFAULT NULL,
+    PRIMARY KEY (`key`)
+);
+CREATE TABLE IF NOT EXISTS `owners` (
+    `key` int NOT NULL,
+    `label` varchar(255) DEFAULT NULL,
+    PRIMARY KEY (`key`)
+);
+CREATE TABLE IF NOT EXISTS `events` (
     `id` bigint(20) unsigned AUTO_INCREMENT,
     `start_date` datetime NOT NULL,
     `end_date` datetime NOT NULL,
@@ -13,21 +22,6 @@ CREATE TABLE `events` (
     FOREIGN KEY (`room_id`) REFERENCES `rooms`(`key`),
     FOREIGN KEY (`owner_id`) REFERENCES `owners`(`key`)
 );
-/*add additional tables*/
-SET FOREIGN_KEY_CHECKS = 0;
-DROP TABLE IF EXISTS `rooms`;
-CREATE TABLE `rooms` (
-    `key` int NOT NULL,
-    `label` varchar(255) DEFAULT NULL,
-    PRIMARY KEY (`key`)
-);
-DROP TABLE IF EXISTS `owners`;
-CREATE TABLE `owners` (
-    `key` int NOT NULL,
-    `label` varchar(255) DEFAULT NULL,
-    PRIMARY KEY (`key`)
-);
-SET FOREIGN_KEY_CHECKS = 1;
 /*add info to tables*/
 INSERT INTO `rooms` (`key`, `label`) VALUES (1, "Room1");
 INSERT INTO `rooms`  (`key`, `label`) VALUES (2, "Room2");
