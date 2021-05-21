@@ -90,7 +90,7 @@ scheduler.templates.tooltip_text = (start,end,event) => {
 };
 
 scheduler.templates.month_date_class = (date) => {
-	if(date < new Date()) return "block_event";
+	if(date < new Date()) return "blocked_cell";
 	return "";
 };
 

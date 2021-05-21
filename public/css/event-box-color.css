@@ -41,8 +41,8 @@
     z-index: 5;
 }
 
-.block_event .dhx_month_body,
-.block_event .dhx_month_head {
+.blocked_cell .dhx_month_body,
+.blocked_cell .dhx_month_head {
     position: relative;
     background: silver;
     opacity: .4;
