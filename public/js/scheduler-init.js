@@ -72,7 +72,7 @@ scheduler.templates.event_text = (start, end, event) => {
 };
 //Add background color for the event-box according its owner
 scheduler.templates.event_class = (start, end, event) => {
-	if(!event.owner_id) return `owner_0`
+	if(!event.owner_id) return "owner_0";
 	return `owner_${event.owner_id}`; 
 };
 //Set custom tooltip text
