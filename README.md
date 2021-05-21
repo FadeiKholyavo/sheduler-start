@@ -19,7 +19,7 @@ or
 - `npm start`
 
 ## Run sheduler
--  include `./js/scheduler-init.js` script to the `public/index.html`
+-  open in browser `localhost:3000`
 
 ## Tutorial
 A complete tutorial here https://docs.dhtmlx.com/scheduler/howtostart_nodejs.html

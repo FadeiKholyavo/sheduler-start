@@ -4,7 +4,7 @@
   "main": "server.js",
   "license": "MIT",
   "scripts": {
-    "start": "node server.js",
+    "start": "node server/server.js",
     "lint": "eslint server/ public/"
   },
   "dependencies": {
